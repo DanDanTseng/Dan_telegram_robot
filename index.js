@@ -1,4 +1,4 @@
   module.exports = require('./src/telegram');
-  require('dotenv').config({path:"../.env"});
+  require('dotenv').config();
   require('./src/mainbot');
 

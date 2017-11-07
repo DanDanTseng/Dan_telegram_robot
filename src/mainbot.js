@@ -30,6 +30,7 @@ const getWeather=(location,msg)=>{
             const date=(format(json.query.results.channel.item.condition.date, 'YYYY-MM-DD'));
             const title=json.query.results.channel.title.replace('Yahoo! Weather -','');
             weatherobj=json.query.results.channel.item.condition;
+            console.log(weatherobj);
             bot.sendMessage(chatId, `${title}\nDate: ${date}\nTemp: ${weatherobj.temp}`,{parse_mode:'HTML'});
 
         });
@@ -42,7 +43,7 @@ if(process.env.dev=='Y'){
 }else{
     const token = process.env.BOT_TOKEN;
     const webHook = { port: process.env.PORT || 443 };
-    const url = process.env.NOW_URL || 'https://dandanrobot.now.sh';
+    const url = process.env.NOW_URL || 'https://danrobot-185312.appspot.com';
 
     bot = new TelegramBot(token, { webHook });
     bot.setWebHook(`${url}/bot${token}`);
